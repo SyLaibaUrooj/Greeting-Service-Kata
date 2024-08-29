@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: python:3.7
+    steps:
+      - run:
+          name: Install Unittest
+          command: |
+            pip install unittest
+      - run:
+          name: Run tests
+          command: |
+            python greetings.py
+            python -m unittest test_greetings.py
